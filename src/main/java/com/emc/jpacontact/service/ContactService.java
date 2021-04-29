@@ -19,5 +19,5 @@ public interface ContactService {
     List<ContactPerson> findAll();
 
     //Find by like name
-    List<ContactPerson> findByNameLike(String name);
+    List<ContactPerson> findByCreatorAndName(String creator,String name);
 }

@@ -36,7 +36,7 @@ public class ContactServiceImpl implements ContactService {
     }
 
     @Override
-    public List<ContactPerson> findByNameLike(String name){
-        return pRepository.findByNameLike(name);
+    public List<ContactPerson> findByCreatorAndName(String creator,String name){
+        return pRepository.findByCreatorAndName(creator,name);
     }
 }

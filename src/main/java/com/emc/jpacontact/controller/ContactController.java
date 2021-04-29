@@ -2,8 +2,10 @@ package com.emc.jpacontact.controller;
 
 
 import com.emc.jpacontact.bean.ContactPerson;
+import com.emc.jpacontact.dao.PersonRepository;
 import com.emc.jpacontact.service.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,6 +14,7 @@ import java.util.List;
 public class ContactController {
     @Autowired
     private ContactService cService;
+
 
     @PostMapping("/person/add")
     public ContactPerson save(@RequestBody ContactPerson person){
@@ -33,8 +36,8 @@ public class ContactController {
         return cService.findAll();
     }
 
-    @GetMapping("/person/findByNameLike")
-    public List<ContactPerson> findByNameLike(@RequestBody String name){
-        return cService.findByNameLike(name);
+    @GetMapping("/person/findByCreatorAndName")
+    public  List<ContactPerson> findByCreatorAndName(@RequestParam(value = "creator") String creator,@RequestParam(value = "name") String name){
+        return cService.findByCreatorAndName(creator,name);
     }
 }
