@@ -35,8 +35,8 @@ public class ContactServiceImpl implements ContactService {
         return pRepository.findAll();
     }
 
-    @Override
+    /*@Override
     public List<ContactPerson> findByCreatorAndName(String creator,String name){
         return pRepository.findByCreatorAndName(creator,name);
-    }
+    }*/
 }

@@ -14,6 +14,7 @@ import java.util.List;
 public class ContactController {
     @Autowired
     private ContactService cService;
+    private PersonRepository pRepository;
 
 
     @PostMapping("/person/add")
@@ -38,6 +39,7 @@ public class ContactController {
 
     @GetMapping("/person/findByCreatorAndName")
     public  List<ContactPerson> findByCreatorAndName(@RequestParam(value = "creator") String creator,@RequestParam(value = "name") String name){
-        return cService.findByCreatorAndName(creator,name);
+        List<ContactPerson> per = pRepository.findByCreatorAndName(creator,name);
+        return  per;
     }
 }
